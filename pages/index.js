@@ -1,88 +1,46 @@
-import Head from 'next/head'
-// import { useState } from 'react'
-import axios from 'axios'
-import styles from '../styles/Home.module.css'
+import fetch from 'isomorphic-unfetch'
+import Card from 'components/Card'
+import { Flex, Box } from 'reflexbox'
+// import HeroWithBackground from 'components/Hero/HeroWithBackground'
 
-const Home = ({ halamen, error }) => {
-  if (error) {
-    return <div>An error occured: {error.message}</div>
-  }
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const Home = ({ artikels }) => {
+    // console.log(pages)
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <ul>
-          {halamen.map(halaman => <li key={halaman.id}>{halaman.name}</li>)}
-        </ul>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    return (
+        // <Box variant="container" bg={{_:"red", lg:"yellow"}}></Box>
+        <>
+        {/* <Box variant="hero">
+            <HeroWithBackground title="Home goes here"/>
+        </Box> */}
+        <Box variant="container">
+            <Box my={40} as="h2">Latest Artikel</Box>
+            <Flex 
+                justifyContent="space-between" 
+                flexDirection={{ _: "column", md: "row" }}
+                flexWrap="wrap"
+            >
+                {artikels.map(artikel => (
+                    <Box key={artikel.id} width={{ _: "100%", md: "30%" }}>
+                        <Card artikel={artikel} />
+                    </Box>
+                ))}
+            </Flex>
+        </Box>
+        </>
+    )
 }
 
-Home.getInitialProps = async (ctx) => {
-  try {
-    const res = await axios.get('http://localhost:1337/halamen')
-    const halamen = res.data
+export async function getServerSideProps() {
+    const { API_URL } = process.env
+
+    const res = await fetch(`${API_URL}/artikels`)
+    const data = await res.json()
+
     return {
-      halamen
+        props: {
+            artikels: data
+        }
     }
-  } catch (error) {
-    return { error }
-  }
 }
 
-export default Home;
+export default Home
