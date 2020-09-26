@@ -1,12 +1,16 @@
 import styled from '@emotion/styled'
+// import { Link } from '../i18n'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useContext } from 'react'
+import HeaderContext from '../contexts/HeaderContext'
 
-function Navigation({ navigation }) {
+function Navigation() {
     const router = useRouter()
+    const { menuItems, color } = useContext(HeaderContext)
     
     return (
-        <NavigationStyled>
+        <NavigationStyled color={color}>
             <nav className="menu">
                 <ul>
                     {/* Hardcode Beranda nav item */}
@@ -16,7 +20,7 @@ function Navigation({ navigation }) {
                         </Link>
                     </li>
 
-                    {navigation.map(item => (
+                    {menuItems.map(item => (
                         <li key={item.id}>
                             <Link href={item.Slug}>
                                 <a className={router.pathname === item.Slug ? 'active' : '' }>{item.Title}</a>
@@ -44,12 +48,13 @@ const NavigationStyled = styled.div`
         }
         a {
             text-decoration: none;
-            color: #CDCDCD;
+            color: ${props => props.color ? '#CDCDCD' : '#FFC600'};
+            font-family: Verdana, Geneva, sans-serif;
             &:hover {
                 text-decoration: underline;
             }
             &.active {
-                color: #FFC600;
+                color: ${props => props.color ? '#FFC600' : '#CDCDCD'};
             }
         }
     }

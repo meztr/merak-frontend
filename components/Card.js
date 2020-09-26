@@ -1,9 +1,8 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
+import LazyLoad from 'react-lazyload'
 
 function Card ({ artikel }) {
-    // const { API_URL } = process.env
-
     if((!artikel.topic)) {
         artikel.topic = {}
         artikel.topic.slug = 'uncategorized'
@@ -11,11 +10,15 @@ function Card ({ artikel }) {
 
     return (
         <CardStyled>
-            {artikel.image && (
+            <LazyLoad
+                once={true}
+                placeholder={<img src={'/images/smkhebat.jpg'} alt="smk-hebat" />}
+            >
                 <div className="poster">
-                    <img src={ artikel.image.url } alt={artikel.image.name}/>
+                    <img src={ artikel.image ? artikel.image.url : '/images/smkhebat-darker.jpg' } alt={artikel.image ? artikel.image.name : 'smk-hebat'}/>
                 </div>
-            )}
+            </LazyLoad>
+
             <div className="body">
                 <h3>{ artikel.title }</h3>
                 <p dangerouslySetInnerHTML={{ __html: artikel.deskripsi }} />
@@ -23,12 +26,6 @@ function Card ({ artikel }) {
                 <Link href="/artikel/[topic]/[slug]" as={`/artikel/${artikel.topic.slug}/${artikel.slug}`}>
                     <a>More about this artikel</a>
                 </Link>
-
-                {/* { artikel.slug && (
-                    <Link href="/artikel/[topic]/[slug]" as={`/artikel/${artikel.topic.slug}/${artikel.slug}`}>
-                        <a>More about this artikel</a>
-                    </Link>
-                )} */}
             </div>
         </CardStyled>
     )
@@ -68,5 +65,4 @@ const CardStyled = styled.div`
         }
     }
 `
-
 export default Card

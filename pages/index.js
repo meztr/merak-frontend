@@ -1,11 +1,11 @@
 import fetch from 'isomorphic-unfetch'
 import Card from 'components/Card'
 import { Flex, Box } from 'reflexbox'
+// import { withTranslation } from '../i18n'
 // import HeroWithBackground from 'components/Hero/HeroWithBackground'
 
+// const Home = ({ artikels, t }) => {
 const Home = ({ artikels }) => {
-    // console.log(pages)
-
     return (
         // <Box variant="container" bg={{_:"red", lg:"yellow"}}></Box>
         <>
@@ -13,7 +13,7 @@ const Home = ({ artikels }) => {
             <HeroWithBackground title="Home goes here"/>
         </Box> */}
         <Box variant="container">
-            <Box my={40} as="h2">Latest Artikel</Box>
+            <Box my={40} as="h2">Artikel Terbaru</Box>
             <Flex 
                 justifyContent="space-between" 
                 flexDirection={{ _: "column", md: "row" }}
@@ -44,3 +44,4 @@ export async function getServerSideProps() {
 }
 
 export default Home
+// export default withTranslation()(Home)

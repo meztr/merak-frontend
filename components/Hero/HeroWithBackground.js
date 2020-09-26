@@ -1,4 +1,4 @@
-import { Box, Heading } from 'rebass'
+import { Box, Heading } from 'reflexbox'
 
 function HeroWithBackground({ title }) {
     return (

@@ -26,7 +26,21 @@ export default {
             mx: 'auto',
             maxWidth: 1200,
             width: '100%',
-        }
+        },
+
+        card: {
+            p: 3,
+            borderRadius: 'default',
+            bg: 'white',
+            boxShadow: 'card',
+        },
+
+        badge: {
+            color: 'white',
+            bg: 'primary',
+            p: 1,
+            borderRadius: 'default',
+        },
     },
 
     breakpoints
