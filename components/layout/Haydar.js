@@ -1,22 +1,38 @@
-import { jsx, css } from '@emotion/core'
-import { rem } from 'polished'
-import { Flex, Box } from 'reflexbox'
+// import { jsx, css } from '@emotion/core'
+// import { rem } from 'polished'
+// import { Flex, Box } from 'reflexbox'
 import HaydarStyled from './HaydarStyled'
+import Link from 'next/link'
 
-function Haydar({ isDark }) {
+/**
+ * 
+ * TODO: 
+ * 1. Need to refactor :
+ * * a. Top Header :
+ * *        a.1. Start Top Header
+ * *        a.2. Middle Top Header
+ * *        a.3. End Top Header
+ * *
+ * * b. Bottom Header
+ */
+
+function Haydar() {
     return (
         <HaydarStyled>
             {/* top header */}
             <div className="site-header__top">
                 <div className="wrapper site-header__wrapper">
-                    <div className="site-header__top">
+                    <div className="site-header__start">
                         <ul className="">
                             <li className=""><a href="#">About</a></li>
                             <li className=""><a href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div className="site-header__middle">
-                        <a href="#" className="brand">Brand</a>
+                        <a href="#" style={{display:"flex", alignItems:"center"}}>
+                            <img className="logo" style={{height:"56px", width:"56px"}} src="/images/logo192.png" alt="Merak Site Logo" /> 
+                            <span className="brand">SMK MUHAMMADIYAH SAMPIT</span>
+                        </a>
                     </div>
                     <div className="site-header__end top">
                         <a href="#">Login</a>
@@ -35,10 +51,12 @@ function Haydar({ isDark }) {
                             </button>
                             <ul className="nav__wrapper">
                                 <li className="nav__item"><a href="#">Home</a></li>
-                                <li className="nav__item"><a href="#">About</a></li>
-                                <li className="nav__item"><a href="#">Services</a></li>
-                                <li className="nav__item"><a href="#">Hire Us</a></li>
-                                <li className="nav__item"><a href="#">Contact</a></li>
+                                <li className="nav__item"><a href="#">Profil</a></li>
+                                <li className="nav__item"><a href="#">Program Studi</a></li>
+                                <li className="nav__item"><a href="#">Informasi</a></li>
+                                <li className="nav__item"><a href="#">Admisi</a></li>
+                                <li className="nav__item"><a href="#">Galeri</a></li>
+                                <li className="nav__item"><a href="#">PPID</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -58,27 +76,7 @@ function Haydar({ isDark }) {
                                 />
                             </form>
                         </div>
-                        <a href="#" className="cart">
-                            <svg
-                                version="1.1"
-                                viewBox="0 0 100 100"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <g>
-                                    <title>Cart</title>
-                                    <path
-                                        d="m95.398 23.699c-1.8008-2.3008-4.6016-3.6992-7.5-3.6992h-60.898l-1.8984-7.3984c-1.1016-4.3008-4.8984-7.3008-9.3008-7.3008h-10.199c-1.6992 0-3.1016 1.3984-3.1016 3.1016 0 1.6992 1.3984 3.1016 3.1016 3.1016h10.199c1.5 0 2.8008 1 3.1992 2.5l12.199 48.602c1.1016 4.3008 4.8984 7.3008 9.3008 7.3008h39.898c4.3984 0 8.3008-3 9.3008-7.3008l7.5-30.801c0.69922-2.8047 0.10156-5.8047-1.8008-8.1055zm-4.2969 6.6992-7.5 30.801c-0.39844 1.5-1.6992 2.5-3.1992 2.5h-39.902c-1.5 0-2.8008-1-3.1992-2.5l-8.6992-34.898h59.301c1 0 2 0.5 2.6016 1.3008 0.59766 0.79688 0.89453 1.7969 0.59766 2.7969z"
-                                    />
-                                    <path
-                                        d="m42.602 73.898c-5.6992 0-10.398 4.6992-10.398 10.398s4.6992 10.398 10.398 10.398c5.6992 0.003907 10.398-4.6953 10.398-10.395s-4.6992-10.402-10.398-10.402zm0 14.5c-2.3008 0-4.1016-1.8008-4.1016-4.1016s1.8008-4.1016 4.1016-4.1016c2.3008 0 4.1016 1.8008 4.1016 4.1016-0.003906 2.2031-1.9023 4.1016-4.1016 4.1016z"
-                                    />
-                                    <path
-                                        d="m77 73.898c-5.6992 0-10.398 4.6992-10.398 10.398s4.6992 10.398 10.398 10.398 10.398-4.6992 10.398-10.398c-0.097657-5.6953-4.6992-10.398-10.398-10.398zm0 14.5c-2.3008 0-4.1016-1.8008-4.1016-4.1016s1.8008-4.1016 4.1016-4.1016 4.1016 1.8008 4.1016 4.1016c0 2.2031-1.9023 4.1016-4.1016 4.1016z"
-                                    />
-                                </g>
-                            </svg>
-                        </a>
-                        <a href="#">
+                        <a href="#" style={{color:"white"}}>
                             <svg
                                 version="1.1"
                                 viewBox="0 0 100 100"

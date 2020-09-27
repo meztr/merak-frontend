@@ -3,7 +3,6 @@ import { Global, css } from '@emotion/core'
 const GlobalStyles = () => (
     <>
         <Global styles={css`
-            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
             html {
                 line-height: 1.15; /* 1 */
                 -ms-text-size-adjust: 100%; /* 2 */
@@ -76,7 +75,10 @@ const GlobalStyles = () => (
                 font-size: 1em; /* 2 */
             }
 
-            a { 
+            a {
+                background-color: transparent; /* 1 */
+                -webkit-text-decoration-skip: objects; /* 2 */
+                
                 text-decoration: none;
                 color: #222;
             }
@@ -158,7 +160,7 @@ const GlobalStyles = () => (
             optgroup,
             select,
             textarea {
-                font-family: sans-serif; /* 1 */
+                font-family: "Poppins", sans-serif; /* 1 */
                 font-size: 100%; /* 1 */
                 line-height: 1.15; /* 1 */
                 margin: 0; /* 2 */
@@ -393,7 +395,7 @@ const GlobalStyles = () => (
                     appearance: none;
                 color: #fff;
                 background-color: #2fa0f6;
-                min-width: 120px;
+                min-width: 100px;
                 padding: 0.5rem 1rem;
                 border-radius: 5px;
                 text-align: center;

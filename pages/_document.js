@@ -10,6 +10,9 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
+                    {/* Important step to normalize web browser css */}
+                    <link rel="stylesheet" href="/styles/reset.min.css" />
+                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
                     <link rel="icon" href="/favicon.ico"/>
                 </Head>
                 <body>
