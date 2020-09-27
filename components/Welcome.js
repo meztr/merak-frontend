@@ -15,6 +15,10 @@ const WelcomeStyled = styled.section `
     justify-content: center;
     align-items: center;
     text-align: center;
+    img {
+        width: 8em;
+        height: 8em;
+    }
 `
 
 const WelcomeBrand = styled.p `
@@ -44,7 +48,7 @@ function Welcome({ element }) {
         <>
             <WelcomeStyled>
                 <div ref={element}>
-                    <img src="/images/meraklogo.png" alt="logo" />
+                    <img src="/images/logo192.png" alt="logo" />
                     <WelcomeBrand>SMK MUHAMMADIYAH SAMPIT</WelcomeBrand>
                     <WelcomeCTAPrimary>
                         Hubungi Kami
