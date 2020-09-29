@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
  */
 
 function Admisi({ admisis }) {
-    console.log(admisis)
+    // console.log(admisis)
 	return (
 		<>
 			<Box variant="container">
