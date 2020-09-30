@@ -1,16 +1,18 @@
 // import Header from 'components/Header'
-import Haydar from "components/layout/Haydar";
 import { ThemeProvider } from "emotion-theming";
-import GlobalStyles from "components/GlobalStyles/GlobalStyles";
+import "../styles/index.css";
+// import GlobalStyles from "components/GlobalStyles/GlobalStyles";
 import theme from "../theme/theme.js";
 import getConfig from "next/config";
 import fetch from "isomorphic-unfetch";
 import { DefaultSeo } from "next-seo";
 import ContextWrapper from "components/ContextWrapper";
-// import { appWithTranslation } from '../i18n'
+// import { appWithTranslation } from '../i18n'   // onhold multi language feature
 import Router from "next/router";
 import { parseCookies } from "nookies";
 import NProgress from "nprogress";
+// import Haydar from "components/layout/Haydar";
+import Navbar from "components/layout/Navbar";
 
 /**
  * FontAwesome call all library
@@ -41,11 +43,12 @@ function MyApp({ Component, pageProps, navigation }) {
     <>
       <DefaultSeo {...SEO} />
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
+        {/* <GlobalStyles /> */}
         {/* <Header navigation={navigation} /> */}
         <ContextWrapper navigation={navigation}>
           {/* <Header /> */}
-          <Haydar />
+          {/* <Haydar /> */}
+          <Navbar transparent />
         </ContextWrapper>
         <Component {...pageProps} />
       </ThemeProvider>

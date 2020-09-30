@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 function ArtikelPage({ artikels, page, numberOfArtikels }) {
     const router = useRouter()
-    console.log(router.query)
+    // console.log(router.query)
 
     const lastPage = Math.ceil(numberOfArtikels / 5)
     return (

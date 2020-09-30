@@ -1,8 +1,11 @@
 import fetch from "isomorphic-unfetch";
 import { Flex, Box } from "reflexbox";
+import Layout from "components/layout/Layout";
+import Landing from "components/landing"
 import Card from "components/Card";
 import Welcome from "components/Welcome";
-import LoopInfo from "components/LoopInfo"
+import HeroTail from "components/Hero/HeroTail";
+import LoopInfo from "components/LoopInfo";
 // import useSticky from '../hooks/useSticky'
 // import { withTranslation } from '../i18n'
 // import HeroWithBackground from 'components/Hero/HeroWithBackground'
@@ -17,9 +20,11 @@ const Home = ({ artikels }) => {
       {/* <Box variant="hero">
                 <HeroWithBackground title="Home goes here"/>
             </Box> */}
-      <Box variant="container">
+
+      {/* <Box variant="container">
         <LoopInfo infos={artikels}/>
         <Welcome element={null} />
+        <HeroTail />
         <Box my={40} as="h2">
           Artikel Terbaru
         </Box>
@@ -34,7 +39,11 @@ const Home = ({ artikels }) => {
             </Box>
           ))}
         </Flex>
-      </Box>
+      </Box> */}
+
+      <Layout>
+        <Landing />
+      </Layout>
     </>
   );
 };
