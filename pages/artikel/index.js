@@ -8,27 +8,27 @@ function ArtikelPage({ artikels, page, numberOfArtikels }) {
 
     const lastPage = Math.ceil(numberOfArtikels / 5)
     return (
-        <Box variant="container" pt={40}>
-            <ul>
-                {artikels.map(artikel => (
-                    <li key={artikel.id}>
-                        <h3>{artikel.title}</h3>
-                    </li>
-                ))}
-            </ul>
+            <Box variant="container" pt={40}>
+                <ul>
+                    {artikels.map(artikel => (
+                        <li key={artikel.id}>
+                            <h3>{artikel.title}</h3>
+                        </li>
+                    ))}
+                </ul>
 
-            <Flex
-                mt={40}
-                pl={20}
-                justifyContent="space-between"
-                maxWidth={300}
-            >
-                <button onClick={ ()=> router.push(`/artikel?page=${page - 1}`)}
-                    disabled={page <= 1}>Prev</button>
-                <button onClick={ ()=> router.push(`/artikel?page=${page + 1}`)}
-                    disabled={page >= lastPage}>Next</button>
-            </Flex>
-        </Box>
+                <Flex
+                    mt={40}
+                    pl={20}
+                    justifyContent="space-between"
+                    maxWidth={300}
+                >
+                    <button onClick={ ()=> router.push(`/artikel?page=${page - 1}`)}
+                        disabled={page <= 1}>Prev</button>
+                    <button onClick={ ()=> router.push(`/artikel?page=${page + 1}`)}
+                        disabled={page >= lastPage}>Next</button>
+                </Flex>
+            </Box>
     )
 }
 

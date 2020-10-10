@@ -30,7 +30,7 @@ function Admisi({ admisis }) {
 
                 <Flex flexWrap='wrap'>
                     {admisis.map(admisi => (
-                        <AdmisiItemStyled>
+                        <AdmisiItemStyled key={admisi.id}>
                             <Link
                                 sx={{
                                     px: 2,

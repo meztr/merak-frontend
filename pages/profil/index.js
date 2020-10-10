@@ -2,6 +2,8 @@ import { NextSeo } from 'next-seo'
 import { Box } from 'reflexbox'
 // import { withTranslation } from '../../i18n'
 
+import Dropdown from 'components/tw/dropdown'
+
 // function Profil({ t }) {
 function Profil() {
     const SEO = {
@@ -18,7 +20,7 @@ function Profil() {
         <>
             <NextSeo {...SEO} />
             <Box variant="container">
-                <Box as="h2" my={40}>
+                <Box as="h2" pt={40}>
                     Hubungi Kami <br />
                     Profil
                 </Box>
@@ -27,6 +29,7 @@ function Profil() {
                     Ini halaman profil
                 </div>
             </Box>
+            <Dropdown />
         </>
     )
 }

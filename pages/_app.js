@@ -1,7 +1,13 @@
 // import Header from 'components/Header'
 import { ThemeProvider } from "emotion-theming";
-import "../styles/index.css";
-// import GlobalStyles from "components/GlobalStyles/GlobalStyles";
+
+// import tailwind global css
+import "../styles/tailwind.css";
+import { GlobalStyles } from 'twin.macro';
+
+// deprecated by tailwindcss
+// import GlobalStyles from "components/GlobalStyles/GlobalStyles"; 
+
 import theme from "../theme/theme.js";
 import getConfig from "next/config";
 import fetch from "isomorphic-unfetch";
@@ -13,6 +19,7 @@ import { parseCookies } from "nookies";
 import NProgress from "nprogress";
 // import Haydar from "components/layout/Haydar";
 import Navbar from "components/layout/Navbar";
+import Layout from "components/layout/Layout";
 
 /**
  * FontAwesome call all library
@@ -29,15 +36,14 @@ import SEO from "../next-seo-config";
 
 // NProgress routine
 Router.events.on("routeChangeStart", (url) => {
-  // console.log(`Loading: ${url}`);
+  console.log(`Loading: ${url}`);
   NProgress.start();
 });
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false }); // disable NProgress spinner style
 
-function MyApp({ Component, pageProps, navigation }) {
-  // console.log(navigation)
+function MyApp({ Component, pageProps, navigation, konten }) {
 
   return (
     <>
@@ -45,12 +51,14 @@ function MyApp({ Component, pageProps, navigation }) {
       <ThemeProvider theme={theme}>
         {/* <GlobalStyles /> */}
         {/* <Header navigation={navigation} /> */}
-        <ContextWrapper navigation={navigation}>
+        <ContextWrapper navigation={navigation} konten={konten}>
           {/* <Header /> */}
           {/* <Haydar /> */}
           <Navbar transparent />
         </ContextWrapper>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   );
@@ -76,6 +84,11 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   );
   const navigation = await res.json();
 
+  const reskonten = await fetch(
+    `${publicRuntimeConfig.API_URL}/kontens?_sort=id:ASC`
+  )
+  const konten = await reskonten.json();
+
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
@@ -93,6 +106,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   return {
     pageProps,
     navigation,
+    konten,
   };
 };
 

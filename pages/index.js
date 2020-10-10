@@ -1,11 +1,11 @@
 import fetch from "isomorphic-unfetch";
-import { Flex, Box } from "reflexbox";
+// import { Flex, Box } from "reflexbox";
 import Layout from "components/layout/Layout";
 import Landing from "components/landing"
-import Card from "components/Card";
-import Welcome from "components/Welcome";
-import HeroTail from "components/Hero/HeroTail";
-import LoopInfo from "components/LoopInfo";
+// import Card from "components/Card";
+// import Welcome from "components/Welcome";
+// import HeroTail from "components/Hero/HeroTail";
+// import LoopInfo from "components/LoopInfo";
 // import useSticky from '../hooks/useSticky'
 // import { withTranslation } from '../i18n'
 // import HeroWithBackground from 'components/Hero/HeroWithBackground'
@@ -40,10 +40,9 @@ const Home = ({ artikels }) => {
           ))}
         </Flex>
       </Box> */}
-
-      <Layout>
+      {/* <Layout> */}
         <Landing />
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 };

@@ -2,7 +2,7 @@
 // import { rem } from 'polished'
 // import { Flex, Box } from 'reflexbox'
 import HaydarStyled from "./HaydarStyled";
-import Link from "next/link";
+// import Link from "next/link";
 import Navigation from "components/Navigation";
 /**
  *

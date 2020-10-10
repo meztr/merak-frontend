@@ -43,7 +43,7 @@ function Login() {
 		<>
             <LoginStyled>
                 <Box variant="container">
-                    <Box as="h2" my={40}>
+                    <Box as="h2" pt={40}>
                         You need to login to access this page
                     </Box>
 
