@@ -24,10 +24,10 @@ function Navbar(props) {
   const { menuItems, contents, color } = useContext(HeaderContext);
 
   // const shidden = css{{
-    // .scroll-hidden::-webkit-scrollbar {
-    //   height: 0px;
-    //   background: transparent;
-    // }
+  // .scroll-hidden::-webkit-scrollbar {
+  //   height: 0px;
+  //   background: transparent;
+  // }
   // }}
 
   const SiteName = "SMK Muhammadiyah Sampit";
@@ -41,11 +41,6 @@ function Navbar(props) {
     navbarOpen ? tw`md:block` : tw`md:hidden`,
   ]);
 
-  const Navbar = styled.div([
-    tw`md:flex items-center`,
-    navbarOpen ? tw`block` : tw`hidden`,
-  ]);
-
   return (
     <>
       <NavbarStyle>
@@ -53,7 +48,7 @@ function Navbar(props) {
           <div tw="flex justify-between items-center">
             <div tw="flex items-center">
               <Link href="/">
-                <a className="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
+                <a className="text-gray-800 text-xl font-bold lg:text-2xl hover:text-gray-700">
                   {SiteName}
                 </a>
               </Link>
@@ -70,7 +65,6 @@ function Navbar(props) {
             </div>
 
             {/* <!-- Mobile menu button --> */}
-            {/* <StyledButtonComponent isPrimary>TEST</StyledButtonComponent> */}
             <MenuButton>
               <button
                 type="button"
@@ -89,39 +83,52 @@ function Navbar(props) {
           </div>
 
           {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-          <Navbar>
-            <div tw="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
-              <li key={0} css={tw`list-none`}>
-                <Link href="/">
-                  <a
-                    css={[
-                      tw`my-1 text-sm text-black font-bold leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0 active:text-yellow-400`,
-                    ]}
-                    onClick={() => {
-                      navbarOpen && setNavbarOpen(!navbarOpen);
-                    }}
-                    href="/"
-                  >
-                    Home
-                  </a>
+          <NavItemStyled 
+            css= {[
+              tw`z-50`,
+              navbarOpen ? tw`block` : tw`hidden`,
+            ]}
+          >
+            <div tw="flex flex-col mt-1 md:flex-row md:mt-0 md:mx-1">
+              <div className="dropdown inline-block relative">
+              <Link href="/">
+                <a tw="text-sm text-black font-bold leading-5 py-2 px-4  inline-flex items-center hover:text-blue-600"
+                  href="/"
+                >
+                    <span className="mr-1">Home</span>
+                </a>
                 </Link>
-              </li>
+              </div>
+
               {menuItems.map((item) => (
-                <li key={item.id} css={tw`list-none`}>
-                  <Link href={item.Slug}>
-                    <a
-                      css={[
-                        tw`my-1 text-sm text-black font-bold leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0 active:text-yellow-400`,
-                      ]}
-                      onClick={() => {
-                        navbarOpen && setNavbarOpen(!navbarOpen);
-                      }}
-                      href={item.Slug}
+                <div key={item.id} className="dropdown inline-block relative">
+                  <a tw="text-sm text-black font-bold leading-5 py-2 px-4 rounded inline-flex items-center hover:text-blue-600">
+                    <span className="mr-1">{item.Title}</span>
+                    <svg
+                      className="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
                     >
-                      {item.Title}
-                    </a>
-                  </Link>
-                </li>
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
+                    </svg>
+                  </a>
+                  <ul className="dropdown-menu absolute hidden text-black bg-white z-50">
+                    {item.sub_navigations.map((subitem) => (
+                      <li key={subitem.id} css={tw`list-none`}>
+                        <Link href={subitem.slug}>
+                          <a
+                            css={[
+                              tw`text-sm hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap`,
+                            ]}
+                            href={subitem.slug}
+                          >
+                            {subitem.title}
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
 
@@ -129,6 +136,9 @@ function Navbar(props) {
               <Link href="/admisi">
                 <a
                   className="block w-1/2 px-3 py-2 mx-1 rounded text-center text-sm bg-blue-500 font-medium text-white leading-5 hover:bg-blue-600 md:mx-2 md:w-auto"
+                  onClick={() => {
+                    navbarOpen && setNavbarOpen(!navbarOpen);
+                  }}
                   href="/admisi"
                 >
                   Admisi
@@ -145,7 +155,7 @@ function Navbar(props) {
                 aria-label="Search"
               />
             </div>
-          </Navbar>
+          </NavItemStyled>
         </UpperBar>
 
         <BottomBar
@@ -167,127 +177,6 @@ function Navbar(props) {
               </Link>
             </li>
           ))}
-
-          {/* <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            News
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Articles
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Videos
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Tricks
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            PHP
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Laravel
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Vue
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            React
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Tailwindcss
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Meraki UI
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            CPP
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            JavaScript
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Ruby
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Mysql
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Pest
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            PHPUnit
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Netlify
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            VS Code
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            PHPStorm
-          </a>
-          <a
-            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-            href="#"
-          >
-            Sublime
-          </a> */}
         </BottomBar>
       </NavbarStyle>
     </>
@@ -295,24 +184,9 @@ function Navbar(props) {
 }
 
 const NavItemStyled = styled.div`
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    li {
-      margin-left: 20px;
-    }
-    a {
-      text-decoration: none;
-      color: ${(props) => (props.color ? "#CDCDCD" : "#FFC600")};
-      &:hover {
-        color: #ffc600;
-      }
-      &.active {
-        color: ${(props) => (props.color ? "#FFC600" : "#CDCDCD")};
-      }
-    }
+  ${tw`md:flex items-center`}
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
 `;
 

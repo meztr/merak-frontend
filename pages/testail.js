@@ -119,7 +119,7 @@ function testail() {
           </button>
           <button className="px-2 opacity-100 hover:opacity-100 focus:opacity-100">
             <img
-              class="w-full"
+              className="w-full"
               src="https://stripe.com/img/v3/payments/overview/logos/missguided.svg"
               alt=""
               style={{ maxHeight: "60px" }}
