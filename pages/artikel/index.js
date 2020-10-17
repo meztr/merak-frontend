@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import { Flex, Box } from 'reflexbox'
 import { useRouter } from 'next/router'
+import Card from 'components/kumparanCard'
 
 function ArtikelPage({ artikels, page, numberOfArtikels }) {
     const router = useRouter()
@@ -8,27 +9,34 @@ function ArtikelPage({ artikels, page, numberOfArtikels }) {
 
     const lastPage = Math.ceil(numberOfArtikels / 5)
     return (
-            <Box variant="container" pt={40}>
-                <ul>
-                    {artikels.map(artikel => (
-                        <li key={artikel.id}>
-                            <h3>{artikel.title}</h3>
-                        </li>
-                    ))}
-                </ul>
+        <Box variant="container" pt={20} pb={80} >
+            <Card />
+        </Box>
+            // <Box variant="container" pt={40}>
+            //     <Box  mb={40} pl={20} >
+            //         <KumparLayout />
+            //     </Box>
 
-                <Flex
-                    mt={40}
-                    pl={20}
-                    justifyContent="space-between"
-                    maxWidth={300}
-                >
-                    <button onClick={ ()=> router.push(`/artikel?page=${page - 1}`)}
-                        disabled={page <= 1}>Prev</button>
-                    <button onClick={ ()=> router.push(`/artikel?page=${page + 1}`)}
-                        disabled={page >= lastPage}>Next</button>
-                </Flex>
-            </Box>
+            //     <ul>
+            //         {artikels.map(artikel => (
+            //             <li key={artikel.id}>
+            //                 <h3>{artikel.title}</h3>
+            //             </li>
+            //         ))}
+            //     </ul>
+
+            //     <Flex
+            //         mt={40}
+            //         pl={20}
+            //         justifyContent="space-between"
+            //         maxWidth={300}
+            //     >
+            //         <button onClick={ ()=> router.push(`/artikel?page=${page - 1}`)}
+            //             disabled={page <= 1}>Prev</button>
+            //         <button onClick={ ()=> router.push(`/artikel?page=${page + 1}`)}
+            //             disabled={page >= lastPage}>Next</button>
+            //     </Flex>
+            // </Box>
     )
 }
 

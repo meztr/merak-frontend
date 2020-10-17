@@ -1,15 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTwitter
-
+  faTwitter, faDribbble, faFacebookSquare, faGithub
 } from "@fortawesome/free-brands-svg-icons";
-import { faDribbble, faFacebookSquare, faGithub } from "node_modules/@fortawesome/free-brands-svg-icons/index";
 
 function Footer() {
   return (
     <>
       <footer className="relative bg-gray-300 pt-8 pb-6">
-        <div
+        {/* <div
           className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
           style={{ height: "80px", transform: "translateZ(0)" }}
         >
@@ -27,7 +25,7 @@ function Footer() {
               points="2560 0 2560 100 0 100"
             ></polygon>
           </svg>
-        </div>
+        </div> */}
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-6/12 px-4">

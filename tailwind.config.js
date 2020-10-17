@@ -7,7 +7,7 @@ module.exports = {
   },
   purge: ["./pages/**/*.js", "./components/**/*.js"],
   theme: {
-    extend: {},
+    extend: {}
   },
   variants: {},
   plugins: [],

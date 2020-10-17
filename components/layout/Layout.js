@@ -1,4 +1,5 @@
-import Footer from 'components/layout/Footer'
+// import Footer from 'components/layout/Footer'
+import FooterTwo from 'components/layout/FooterTwo'
 
 const Layout = ({ children }) => {
   return (
@@ -8,7 +9,7 @@ const Layout = ({ children }) => {
         {children}
       </div>
     </main>
-    <Footer />
+    <FooterTwo />
     </>
   );
 };

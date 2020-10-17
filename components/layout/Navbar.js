@@ -30,6 +30,8 @@ function Navbar(props) {
   // }
   // }}
 
+  // It’s okay, you don't have to be good. We only care how much you enjoy it
+
   const SiteName = "SMK Muhammadiyah Sampit";
   const NavbarStyle = tw.nav`container mx-auto px-6 py-3`;
 
@@ -54,21 +56,21 @@ function Navbar(props) {
               </Link>
 
               {/* <!-- Search input on desktop screen --> */}
-              <div className="mx-10 hidden md:block">
+              {/* <div className="mx-10 hidden md:block">
                 <input
                   type="text"
                   className="w-32 lg:w-64 px-4 py-3 leading-tight text-sm text-gray-700 bg-gray-100 rounded-md placeholder-gray-500 border border-transparent focus:outline-none focus:bg-white focus:shadow-outline focus:border-blue-400"
                   placeholder="Search"
                   aria-label="Search"
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* <!-- Mobile menu button --> */}
             <MenuButton>
               <button
                 type="button"
-                className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+                className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 md:hidden lg:hidden"
                 aria-label="toggle menu"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
@@ -83,36 +85,33 @@ function Navbar(props) {
           </div>
 
           {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-          <NavItemStyled 
-            css= {[
-              tw`z-50`,
-              navbarOpen ? tw`block` : tw`hidden`,
-            ]}
-          >
+          <NavItemStyled css={[tw`z-50`, navbarOpen ? tw`block` : tw`hidden`]}>
             <div tw="flex flex-col mt-1 md:flex-row md:mt-0 md:mx-1">
               <div className="dropdown inline-block relative">
-              <Link href="/">
-                <a tw="text-sm text-black font-bold leading-5 py-2 px-4  inline-flex items-center hover:text-blue-600"
-                  href="/"
-                >
+                <Link href="/">
+                  <a
+                    tw="transition duration-300 ease-in-out text-sm text-black font-bold leading-5 py-2 px-4 inline-flex items-center transform hover:-translate-y-1 hover:scale-105"
+                    href="/"
+                  >
                     <span className="mr-1">Home</span>
-                </a>
+                  </a>
                 </Link>
               </div>
-
               {menuItems.map((item) => (
                 <div key={item.id} className="dropdown inline-block relative">
-                  <a tw="text-sm text-black font-bold leading-5 py-2 px-4 rounded inline-flex items-center hover:text-blue-600">
+                  <a tw="transition duration-300 ease-in-out text-sm text-black font-bold leading-5 py-2 px-4 rounded inline-flex items-center transform hover:-translate-y-1 hover:scale-110">
                     <span className="mr-1">{item.Title}</span>
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
-                    </svg>
+                    {!!item.sub_navigations.length && (
+                      <svg
+                        className="fill-current h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
+                      </svg>
+                    )}
                   </a>
-                  <ul className="dropdown-menu absolute hidden text-black bg-white z-50">
+                  <ul className="dropdown-menu md:absolute hidden text-black bg-white shadow-lg rounded-lg z-50">
                     {item.sub_navigations.map((subitem) => (
                       <li key={subitem.id} css={tw`list-none`}>
                         <Link href={subitem.slug}>
@@ -147,14 +146,14 @@ function Navbar(props) {
             </div>
 
             {/* <!-- Search input on mobile screen --> */}
-            <div className="mt-3 md:hidden">
+            {/* <div className="mt-3 md:hidden">
               <input
                 type="text"
                 className="w-full px-4 py-3 leading-tight text-sm text-gray-700 bg-gray-100 rounded-md placeholder-gray-500 focus:outline-none focus:bg-white focus:shadow-outline"
                 placeholder="Search"
                 aria-label="Search"
               />
-            </div>
+            </div> */}
           </NavItemStyled>
         </UpperBar>
 

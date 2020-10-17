@@ -15,6 +15,7 @@ class MyDocument extends Document {
                     {/* <link rel="stylesheet" type="text/css" href="/styles/reset.min.css" /> */}
                     <link rel="stylesheet" type="text/css" href="/styles/nprogress.css" />
                     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
+                    {/* <link href="https://fonts.googleapis.com/css?family=Mitr|Roboto+Slab|Source+Sans+Pro&display=swap" rel="stylesheet" /> */}
                     <link rel="icon" href="/favicon.ico" />
                     
                     {/* <script type="text/javascript" src="/scripts/tawkto.js" /> */}

@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps, navigation, konten }) {
     <>
       <DefaultSeo {...SEO} />
       <ThemeProvider theme={theme}>
-        {/* <GlobalStyles /> */}
+        <GlobalStyles />
         {/* <Header navigation={navigation} /> */}
         <ContextWrapper navigation={navigation} konten={konten}>
           {/* <Header /> */}
