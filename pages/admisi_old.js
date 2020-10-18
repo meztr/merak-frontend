@@ -4,8 +4,9 @@ import { css } from '@emotion/core'
 import Link from 'next/link'
 import getConfig from 'next/config'
 import { parseCookies  } from 'nookies'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import AdmisiFeature from 'components/Admisi/feature'
 
 
 /**
@@ -19,7 +20,7 @@ function Admisi({ admisis }) {
     // console.log(admisis)
 	return (
 		<>
-			<Box variant="container">
+			{/* <Box variant="container">
                 <Box 
                     as="h2" 
                     my={40}
@@ -44,7 +45,8 @@ function Admisi({ admisis }) {
                         </AdmisiItemStyled>
                     ))}
                 </Flex>
-			</Box>
+			</Box> */}
+      <AdmisiFeature />
         </>
 
         // <Container>

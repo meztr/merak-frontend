@@ -47,8 +47,11 @@ function LandingTwo() {
                 </div>
                 <div className="flex-grow">
                   <p className="leading-relaxed text-base">
-                    <span className="block font-bold">Otomatisasi dan Tata Kelola Perkantoran </span>
-                    merupakan kompetensi keahlian siswa pada kegiatan perkantoran dan ketatausahaan berbasis otomatisasi IT.
+                    <span className="block font-bold">
+                      Otomatisasi dan Tata Kelola Perkantoran{" "}
+                    </span>
+                    merupakan kompetensi keahlian siswa pada kegiatan
+                    perkantoran dan ketatausahaan berbasis otomatisasi IT.
                   </p>
                   <Link href="/prodi/otkp">
                     <a className="mt-3 text-indigo-500 inline-flex items-center">
@@ -96,9 +99,17 @@ function LandingTwo() {
                 </div>
                 <div className="flex-grow">
                   <p className="leading-relaxed text-base">
-                    <span className="block font-bold">Teknik Komputer dan Jaringan </span> 
-                    merupakan kompetensi keahlian siswa di bidang IT Hardware dan Networking terutama 
-                    <span className="font-light">{' '} Administrator Jaringan Komputer, Technical Support, Computer Network Maintenance dan Keamanan Jaringan Komputer</span> 
+                    <span className="block font-bold">
+                      Teknik Komputer dan Jaringan{" "}
+                    </span>
+                    merupakan kompetensi keahlian siswa di bidang IT Hardware
+                    dan Networking terutama
+                    <span className="font-light">
+                      {" "}
+                      Administrator Jaringan Komputer, Technical Support,
+                      Computer Network Maintenance dan Keamanan Jaringan
+                      Komputer
+                    </span>
                   </p>
                   <Link href="/prodi/tkj">
                     <a className="mt-3 text-indigo-500 inline-flex items-center">
@@ -146,24 +157,29 @@ function LandingTwo() {
                 </div>
                 <div className="flex-grow">
                   <p className="leading-relaxed text-base">
-                    Perbankan Syariah. Blue bottle crucifix vinyl post-ironic
-                    four dollar toast vegan taxidermy. Gastropub indxgo juice
-                    poutine.
+                    <span className="block font-bold">Perbankan Syariah</span>
+                    kompetensi keahlian yang mampu bekerja dalam bidang
+                    perbankan syariah guna membantu tugas-tugas tenaga perbankan
+                    profesional terutama tenaga akuntan syariah, operasional
+                    lembaga keuangan syariah, manajemen perbankan syariah, dan
+                    pemasaran syariah.
                   </p>
-                  <a className="mt-3 text-indigo-500 inline-flex items-center">
-                    Lebih lanjut
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  <Link href="/prodi/pbks">
+                    <a className="mt-3 text-indigo-500 inline-flex items-center">
+                      Lebih lanjut
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

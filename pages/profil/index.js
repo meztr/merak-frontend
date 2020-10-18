@@ -1,37 +1,31 @@
-import { NextSeo } from 'next-seo'
-import { Box } from 'reflexbox'
+import CoomingSoon from "components//tw/comingsoon";
+import { NextSeo } from "next-seo";
+// import { Box } from 'reflexbox'
 // import { withTranslation } from '../../i18n'
-
-import Dropdown from 'components/tw/dropdown'
 
 // function Profil({ t }) {
 function Profil() {
-    const SEO = {
-        title: `SMK Muhammadiyah Sampit | Profil`,
-        description: 'Profil SMK Muhammadiyah Sampit',
+  const SEO = {
+    title: `SMK Muhammadiyah Sampit | Profil`,
+    description: "Profil SMK Muhammadiyah Sampit",
 
-        openGraph: {
-            title: `SMK Muhammadiyah Sampit | Profil`,
-            description: 'Profil SMK Muhammadiyah Sampit',
-        }
-    }
+    openGraph: {
+      title: `SMK Muhammadiyah Sampit | Profil`,
+      description: "Profil SMK Muhammadiyah Sampit",
+    },
+  };
 
-    return (
-        <>
-            <NextSeo {...SEO} />
-            <Box variant="container">
-                <Box as="h2" pt={40}>
-                    Hubungi Kami <br />
-                    Profil
-                </Box>
-                
-                <div>
-                    Ini halaman profil
-                </div>
-            </Box>
-            <Dropdown />
-        </>
-    )
+  const pageData = {
+    title: `Profil Sekolah`,
+    image: `/images/references/soon.png`,
+  };
+
+  return (
+    <>
+      <NextSeo {...SEO} />
+      <CoomingSoon post={pageData}/>
+    </>
+  );
 }
 
 // Profil.getInitialProps = async () => {
@@ -45,4 +39,4 @@ function Profil() {
  */
 
 // export default withTranslation()(Profil)
-export default Profil
+export default Profil;

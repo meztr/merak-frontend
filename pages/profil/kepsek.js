@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo'
-import { Box } from 'reflexbox'
+import ComingSoon from "components/tw/comingsoon";
 
 function Kepsek() {
     const SEO = {
@@ -11,17 +11,17 @@ function Kepsek() {
             description: 'Kepala Sekolah SMK Muhammadiyah Sampit',
         }
     }
-
-    return (
+    const pageData = {
+        title: `Kepala Sekolah`,
+        image: `/images/references/coffee-mbp.jpg`,
+      };
+    
+      return (
         <>
-            <NextSeo {...SEO} />
-            <Box variant="container">
-                <Box as="h2" pt={40}>
-                    Kepsek content goes here
-                </Box>
-            </Box>
+          <NextSeo {...SEO} />
+          <ComingSoon post={pageData} />
         </>
-    )
+      );
 }
 
 export default Kepsek

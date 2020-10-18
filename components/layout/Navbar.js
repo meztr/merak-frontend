@@ -99,7 +99,7 @@ function Navbar(props) {
               </div>
               {menuItems.map((item) => (
                 <div key={item.id} className="dropdown inline-block relative">
-                  <a tw="transition duration-300 ease-in-out text-sm text-black font-bold leading-5 py-2 px-4 rounded inline-flex items-center transform hover:-translate-y-1 hover:scale-110">
+                  <a tw="transition duration-300 ease-in-out text-sm text-black font-bold leading-5 py-2 px-4 rounded inline-flex items-center transform hover:-translate-y-1 hover:scale-105">
                     <span className="mr-1">{item.Title}</span>
                     {!!item.sub_navigations.length && (
                       <svg

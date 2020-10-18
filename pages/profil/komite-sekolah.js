@@ -1,27 +1,28 @@
-import { NextSeo } from 'next-seo'
-import { Box } from 'reflexbox'
+import { NextSeo } from "next-seo";
+import ComingSoon from "components/tw/comingsoon";
 
 function Komite() {
-    const SEO = {
-        title: `SMK Muhammadiyah Sampit | Profil`,
-        description: 'Komite Sekolah SMK Muhammadiyah Sampit',
+  const SEO = {
+    title: `SMK Muhammadiyah Sampit | Profil`,
+    description: "Komite Sekolah SMK Muhammadiyah Sampit",
 
-        openGraph: {
-            title: `SMK Muhammadiyah Sampit | Profil`,
-            description: 'Komite Sekolah SMK Muhammadiyah Sampit',
-        }
-    }
+    openGraph: {
+      title: `SMK Muhammadiyah Sampit | Profil`,
+      description: "Komite Sekolah SMK Muhammadiyah Sampit",
+    },
+  };
 
-    return (
-        <>
-            <NextSeo {...SEO} />
-            <Box variant="container">
-                <Box as="h2" pt={40}>
-                  Komite Sekolah content goes here
-                </Box>
-            </Box>
-        </>
-    )
+  const pageData = {
+    title: `Komite Sekolah`,
+    image: `/images/references/coffee-mbp.jpg`,
+  };
+
+  return (
+    <>
+      <NextSeo {...SEO} />
+      <ComingSoon post={pageData} />
+    </>
+  );
 }
 
-export default Komite
+export default Komite;

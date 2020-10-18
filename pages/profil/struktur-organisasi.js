@@ -1,27 +1,28 @@
-import { NextSeo } from 'next-seo'
-import { Box } from 'reflexbox'
+import { NextSeo } from "next-seo";
+import ComingSoon from "components/tw/comingsoon";
 
 function StrukturOrganisasi() {
-    const SEO = {
-        title: `SMK Muhammadiyah Sampit | Profil`,
-        description: 'Visi Misi SMK Muhammadiyah Sampit',
+  const SEO = {
+    title: `SMK Muhammadiyah Sampit | Profil`,
+    description: "Struktur Organisasi SMK Muhammadiyah Sampit",
 
-        openGraph: {
-            title: `SMK Muhammadiyah Sampit | Profil`,
-            description: 'Visi Misi SMK Muhammadiyah Sampit',
-        }
-    }
+    openGraph: {
+      title: `SMK Muhammadiyah Sampit | Profil`,
+      description: "Struktur Organisasi SMK Muhammadiyah Sampit",
+    },
+  };
 
-    return (
-        <>
-            <NextSeo {...SEO} />
-            <Box variant="container">
-                <Box as="h2" pt={40}>
-                    Struktur Organisasi content goes here
-                </Box>
-            </Box>
-        </>
-    )
+  const pageData = {
+    title: `Struktur Organisasi`,
+    image: `/images/references/coffee-mbp.jpg`,
+  };
+
+  return (
+    <>
+      <NextSeo {...SEO} />
+      <ComingSoon post={pageData} />
+    </>
+  );
 }
 
-export default StrukturOrganisasi
+export default StrukturOrganisasi;
