@@ -4,10 +4,6 @@ import { ThemeProvider } from "emotion-theming";
 // import tailwind global css
 import "../styles/tailwind.css";
 import { GlobalStyles } from 'twin.macro';
-
-// deprecated by tailwindcss
-// import GlobalStyles from "components/GlobalStyles/GlobalStyles"; 
-
 import theme from "../theme/theme.js";
 import getConfig from "next/config";
 import fetch from "isomorphic-unfetch";

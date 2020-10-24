@@ -30,8 +30,6 @@ function Navbar(props) {
   // }
   // }}
 
-  // It’s okay, you don't have to be good. We only care how much you enjoy it
-
   const SiteName = "SMK Muhammadiyah Sampit";
   const NavbarStyle = tw.nav`container mx-auto px-6 py-3`;
 
