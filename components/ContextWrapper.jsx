@@ -16,8 +16,8 @@ function ContextWrapper({ children, navigation, konten }) {
 
 ContextWrapper.propTypes = {
     children: PropTypes.any,
-    navigation: PropTypes.string,
-    konten: PropTypes.string
+    navigation: PropTypes.array,
+    konten: PropTypes.array
 };
 
 export default ContextWrapper;
