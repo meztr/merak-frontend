@@ -1,49 +1,72 @@
 {
-  "name": "site-merak",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "babel-plugin-macros": "^2.8.0",
-    "dotenv": "^8.2.0",
-    "emotion-theming": "^10.0.27",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.5.3",
-    "next-i18next": "^6.0.2",
-    "next-seo": "^4.7.3",
-    "nookies": "^2.4.0",
-    "nprogress": "^0.2.0",
-    "polished": "^3.6.6",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-lazyload": "^3.0.0",
-    "react-text-loop": "^2.3.0",
-    "reflexbox": "^4.0.6",
-    "twin.macro": "^1.10.0"
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^3.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.8.10"
-  },
-  "babelMacros": {
-    "twin": {
-      "config": "tailwind.config.js",
-      "preset": "emotion",
-      "debugProp": true,
-      "debugPlugins": false,
-      "debug": false
+    "name": "site-merak",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "lint": "eslint --fix .",
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+        "start": "next start"
+    },
+    "dependencies": {
+        "@emotion/babel-preset-css-prop": "^10.0.27",
+        "@emotion/core": "^10.0.35",
+        "@emotion/styled": "^10.0.27",
+        "@fortawesome/fontawesome-svg-core": "^1.2.30",
+        "@fortawesome/free-brands-svg-icons": "^5.14.0",
+        "@fortawesome/free-solid-svg-icons": "^5.14.0",
+        "@fortawesome/react-fontawesome": "^0.1.11",
+        "babel-plugin-macros": "^2.8.0",
+        "dotenv": "^8.2.0",
+        "emotion-theming": "^10.0.27",
+        "isomorphic-unfetch": "^3.0.0",
+        "next": "^9.5.3",
+        "next-i18next": "^6.0.2",
+        "next-seo": "^4.7.3",
+        "nookies": "^2.4.0",
+        "nprogress": "^0.2.0",
+        "polished": "^3.6.6",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "react-lazyload": "^3.0.0",
+        "react-text-loop": "^2.3.0",
+        "reflexbox": "^4.0.6",
+        "twin.macro": "^1.10.0"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^3.0.0",
+        "eslint": "^7.12.0",
+        "eslint-config-prettier": "^6.14.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-simple-import-sort": "^5.0.3",
+        "eslint-plugin-tailwind": "^0.2.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.4.2",
+        "postcss-preset-env": "^6.7.0",
+        "prettier": "^2.1.2",
+        "tailwindcss": "^1.8.10"
+    },
+    "babelMacros": {
+        "twin": {
+            "config": "tailwind.config.js",
+            "preset": "emotion",
+            "debugProp": true,
+            "debugPlugins": false,
+            "debug": false
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "./**/*.{js,jsx,ts,tsx}": [
+            "eslint --fix"
+        ]
     }
-  }
 }

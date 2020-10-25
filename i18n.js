@@ -1,4 +1,4 @@
-const NextI18Next = require('next-i18next').default
+const NextI18Next = require('next-i18next').default;
 
 module.exports = new NextI18Next({
     otherLanguages: ['en', 'id'],
@@ -6,5 +6,5 @@ module.exports = new NextI18Next({
     localeSubpaths: {
         en: 'en'
     },
-    localePath: 'public/static/locales',
-})
+    localePath: 'public/static/locales'
+});

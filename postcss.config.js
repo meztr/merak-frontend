@@ -27,10 +27,8 @@
 //   ],
 // };
 
-
-
 // Option 2 -> https://stackoverflow.com/questions/62345671/nextjs-with-global-css-import-fail-in-production-mode
 
 module.exports = {
-  plugins: ["tailwindcss", "postcss-preset-env"]
+    plugins: ['tailwindcss', 'postcss-preset-env']
 };
