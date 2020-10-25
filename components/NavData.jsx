@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { css, jsx } from '@emotion/core';
-import tw, { styled } from 'twin.macro';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+import tw from 'twin.macro';
 import Link from 'next/link';
 
 function NavData({ navdata }) {

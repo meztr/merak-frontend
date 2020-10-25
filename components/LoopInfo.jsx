@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
-import Link from 'next/link';
+/* eslint-disable react/prop-types */
+// import styled from '@emotion/styled';
+// import Link from 'next/link';
 import { Flex, Box } from 'reflexbox';
 import TextLoop from 'react-text-loop';
 

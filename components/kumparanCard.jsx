@@ -1,5 +1,8 @@
-import tw, { styled, css } from 'twin.macro';
-import Link from 'next/link';
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+// import tw, { styled, css } from 'twin.macro';
+// import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -45,6 +48,7 @@ function KumparanCard() {
                                     <img
                                         className="w-screen bg-white rounded-lg"
                                         src="/images/references/sule.jpg"
+                                        alt="artikel-image"
                                     />
                                 </div>
                                 <div
@@ -66,6 +70,7 @@ function KumparanCard() {
                                                     <img
                                                         className="w-3 h-3 mr-1 rounded-full"
                                                         src="/images/references/uhits.png"
+                                                        alt="dua"
                                                     />
                                                     <span className="mr-1 text-xs text-gray-400">
                                                         kumparanHITS
@@ -73,6 +78,7 @@ function KumparanCard() {
                                                     <img
                                                         className="w-3 h-3 mr-1"
                                                         src="/images/references/verified.svg"
+                                                        alt="tiga"
                                                     />
                                                 </div>
                                             </a>
@@ -150,6 +156,7 @@ function KumparanCard() {
                                                             <img
                                                                 className="w-3 h-3 mr-1 rounded-full"
                                                                 src="/images/references/uhits.png"
+                                                                alt="empat"
                                                             />
                                                             <span className="mr-1 text-xs text-gray-500">
                                                                 kumparanHITS

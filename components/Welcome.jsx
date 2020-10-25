@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import styled from '@emotion/styled';
-import { rem } from 'polished';
-import { Flex, Box } from 'reflexbox';
+// import { rem } from 'polished';
+// import { Flex, Box } from 'reflexbox';
 
 const WelcomeStyled = styled.section`
     // background-color: #1f1f1f;

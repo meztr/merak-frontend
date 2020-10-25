@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Heading } from 'reflexbox';
 
 function HeroWithBackground({ title }) {
