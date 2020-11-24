@@ -1,4 +1,4 @@
-import CoomingSoon from 'components//tw/comingsoon';
+import ComingSoon from 'components//tw/comingsoon';
 import { NextSeo } from 'next-seo';
 // import { Box } from 'reflexbox'
 // import { withTranslation } from '../../i18n'
@@ -23,7 +23,7 @@ function Profil() {
     return (
         <>
             <NextSeo {...SEO} />
-            <CoomingSoon post={pageData} />
+            <ComingSoon post={pageData} />
         </>
     );
 }

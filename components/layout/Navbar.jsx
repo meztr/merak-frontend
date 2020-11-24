@@ -103,19 +103,24 @@ function Navbar(props) {
                                         )}
                                     </a>
                                     <ul className="z-50 hidden text-black bg-white rounded-lg shadow-lg dropdown-menu md:absolute">
-                                        {item.sub_navigations.map((subitem) => (
-                                            <li key={subitem.id} css={tw`list-none`}>
-                                                <Link href={subitem.slug}>
-                                                    <a
-                                                        css={[
-                                                            tw`text-sm hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap`
-                                                        ]}
-                                                        href={subitem.slug}>
-                                                        {subitem.title}
-                                                    </a>
-                                                </Link>
-                                            </li>
-                                        ))}
+                                        {item.sub_navigations
+                                            .sort(
+                                                ({ id: prevID }, { id: currentID }) =>
+                                                    prevID - currentID
+                                            )
+                                            .map((subitem) => (
+                                                <li key={subitem.id} css={tw`list-none`}>
+                                                    <Link href={subitem.slug}>
+                                                        <a
+                                                            css={[
+                                                                tw`text-sm hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap`
+                                                            ]}
+                                                            href={subitem.slug}>
+                                                            {subitem.title}
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            ))}
                                     </ul>
                                 </div>
                             ))}

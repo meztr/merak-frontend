@@ -85,13 +85,13 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     }
 
     if (!jwt) {
-        // if (ctx.pathname === "/admisi") {
-        //   redirectUser(ctx, "/login");
-        // }
-
-        if (ctx.pathname === '/add-artikel') {
+        if (ctx.pathname === '/admisi') {
             redirectUser(ctx, '/login');
         }
+
+        // if (ctx.pathname === '/add-artikel') {
+        //     redirectUser(ctx, '/login');
+        // }
     }
 
     return {
