@@ -9,6 +9,8 @@ import getConfig from 'next/config';
 import fetch from 'isomorphic-unfetch';
 import { DefaultSeo } from 'next-seo';
 import ContextWrapper from 'components/ContextWrapper';
+import { getStrapiMedia } from '../lib/media';
+import { fetchAPI } from '../lib/api';
 // import { appWithTranslation } from '../i18n'   // onhold multi language feature
 import Router from 'next/router';
 import { parseCookies } from 'nookies';
@@ -39,27 +41,30 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 NProgress.configure({ showSpinner: false }); // disable NProgress spinner style
 
-function MyApp({ Component, pageProps, navigation, konten }) {
+function MyApp({ Component, pageProps, navigation, konten, siteconfig }) {
+    const { global } = pageProps;
+
     return (
         <>
             <DefaultSeo {...SEO} />
             <ThemeProvider theme={theme}>
                 <GlobalStyles />
                 {/* <Header navigation={navigation} /> */}
-                <ContextWrapper navigation={navigation} konten={konten}>
+                <ContextWrapper navigation={navigation} konten={konten} siteconfig={siteconfig}>
+                    {/* <ContextWrapper value={global}> */}
                     {/* <Header /> */}
                     {/* <Haydar /> */}
-                    <Navbar transparent />
+                    <Navbar transparent sitename={siteconfig} />
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
                 </ContextWrapper>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
             </ThemeProvider>
         </>
     );
 }
 
-const { publicRuntimeConfig } = getConfig();
+// const { publicRuntimeConfig } = getConfig();
 
 function redirectUser(ctx, location) {
     if (ctx.req) {
@@ -74,11 +79,9 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     let pageProps = {};
     const jwt = parseCookies(ctx).jwt;
 
-    const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations?_sort=id:ASC`);
-    const navigation = await res.json();
-
-    const reskonten = await fetch(`${publicRuntimeConfig.API_URL}/kontens?_sort=id:ASC`);
-    const konten = await reskonten.json();
+    const navigation = await fetchAPI('/navigations?_sort=id:ASC');
+    const konten = await fetchAPI('/kontens?_sort=id:ASC');
+    const siteconfig = await fetchAPI('/site-config');
 
     if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps(ctx);
@@ -97,7 +100,8 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     return {
         pageProps,
         navigation,
-        konten
+        konten,
+        siteconfig
     };
 };
 

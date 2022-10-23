@@ -1,5 +1,7 @@
 import { NextSeo } from 'next-seo';
-import PageLayout from 'components/tw/generalLayout';
+import PageLayout from 'components/tw/visimisiLayout';
+// import PageLayout from 'components/tw/generalLayout';
+import { fetchAPI } from 'lib/api';
 
 const VisiMisiData = {
     id: `101`,
@@ -50,7 +52,7 @@ const VisiMisiData = {
     ]
 };
 
-function VisiMisi() {
+function VisiMisi({ visimisi }) {
     const SEO = {
         title: `SMK Muhammadiyah Sampit | Profil`,
         description: 'Visi Misi SMK Muhammadiyah Sampit',
@@ -64,9 +66,20 @@ function VisiMisi() {
     return (
         <>
             <NextSeo {...SEO} />
-            <PageLayout post={VisiMisiData} />
+            <PageLayout post={visimisi} />
+            {/* <PageLayout post={VisiMisiData} /> */}
         </>
     );
+}
+
+export async function getStaticProps() {
+    const visimisi = await fetchAPI('/visi');
+    // const res = await fetch('https://api.smkmuhsampit.id/visi');
+    // const posts = await res.json();
+
+    return {
+        props: { visimisi } // will be passed to the page component as props
+    };
 }
 
 export default VisiMisi;

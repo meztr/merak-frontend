@@ -30,7 +30,7 @@ function Navbar(props) {
     // }
     // }}
 
-    const SiteName = 'SMK Muhammadiyah Sampit';
+    const SiteName = props.sitename.name;
     const NavbarStyle = tw.nav`container mx-auto px-6 py-3`;
 
     const UpperBar = tw.div`flex flex-col md:flex-row md:justify-between md:items-center`;
